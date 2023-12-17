@@ -365,7 +365,7 @@ class MyNet(nn.Module):
 
         # enc_out = torch.reshape(enc_out, (enc_out.shape[0] * enc_out.shape[1], enc_out.shape[2],  enc_out.shape[3]))
 
-        # enc_out = self.linear(enc_out)
+        
         # enc_out = self.norm(enc_out)
 
         # enc_out = self.attn2(enc_out)    # [32, 7, d_model]
