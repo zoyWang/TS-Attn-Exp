@@ -7,7 +7,7 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import StandardScaler
 from utils.timefeatures import time_features
-from utils.dtwCostMatrix import dtw_cost_matrix_multi, dtw_cost_matrix_pdist
+# from utils.dtwCostMatrix import dtw_cost_matrix_multi, dtw_cost_matrix_pdist
 from sktime.datasets import load_from_tsfile_to_dataframe
 import warnings
 warnings.filterwarnings('ignore')
@@ -44,6 +44,7 @@ class Dataset_ETT_hour(Dataset):
 
     def __read_data__(self):
         self.scaler = StandardScaler()
+        # print(f"current work directory is {os.getcwd()}")
         df_raw = pd.read_csv(os.path.join(self.root_path, self.data_path))
 
         border1s = [0, 12 * 30 * 24 - self.seq_len, 12 * 30 * 24 + 4 * 30 * 24 - self.seq_len]

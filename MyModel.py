@@ -6,7 +6,7 @@ import sys
 from einops.layers.torch import Rearrange
 from einops import rearrange, reduce
 from timm.models.layers import DropPath
-from fastdtw import fastdtw
+# from fastdtw import fastdtw
 from scipy.spatial.distance import pdist, squareform, cdist
 import math
 

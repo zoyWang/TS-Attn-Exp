@@ -34,7 +34,7 @@ class ETTh1_LTFConfig(LTFConfig):
         super().__init__(pred_len)
         self.name = "etth1"
         self.data = "ETTh1"
-        self.root_path = "/home/549/zw6060/project/Training/wzyWorkspace/MSD-Mixer-main/dataset/ETT-small"
+        self.root_path = "./dataset/ETT-small"
         self.data_path = "ETTh1.csv"
         self.target = ['OT']
 
@@ -88,7 +88,7 @@ def ltf_experiment(config, gpus):
                                 mode="min",
                                 patience=10)
     callbacks.append(es_callback)
-    logger = get_csv_logger("logs/ltf",
+    logger = get_csv_logger("./TS-Attn-Exp/logs/ltf",
                             name=f"{config.name}_{config.pred_len}")
     trainer = pl.Trainer(devices=gpus,
                          accelerator="gpu",
