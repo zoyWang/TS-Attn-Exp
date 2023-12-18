@@ -90,7 +90,7 @@ def ltf_experiment(config, gpus):
     callbacks.append(es_callback)
     logger = get_csv_logger("./TS-Attn-Exp/logs/ltf",
                             name=f"{config.name}_{config.pred_len}")
-    trainer = pl.Trainer(devices=gpus,
+    trainer = pl.Trainer(devices=[gpus],
                          accelerator="gpu",
                          precision=16,
                          callbacks=callbacks,
@@ -107,4 +107,4 @@ def ltf_experiment(config, gpus):
 if __name__ == "__main__":
     pred_len = 96
     etth1_ltf = ETTh1_LTFConfig(pred_len)
-    ltf_experiment(etth1_ltf, gpus=[0])
+    ltf_experiment(etth1_ltf, gpus=0)
